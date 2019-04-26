@@ -59,7 +59,11 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Planned Trips" id="Mcd-Wb-SvY">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="3Kw-5C-QNs"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="3Kw-5C-QNs">
+                            <connections>
+                                <segue destination="55K-af-vht" kind="push" id="iiV-NR-NuJ"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableview" destination="wHH-We-tQb" id="WMW-qN-Vu7"/>
@@ -68,6 +72,30 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1230" y="-550"/>
+        </scene>
+        <!--Add Trip-->
+        <scene sceneID="zZd-yf-vJp">
+            <objects>
+                <viewController id="55K-af-vht" customClass="AddTripViewController" customModule="TripPlanner" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ORr-ZI-uhW">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="vh1-Sw-lsI"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add Trip" id="sGl-3f-UI4">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="Rz0-0M-FCW">
+                            <connections>
+                                <segue destination="dev-YS-8LH" kind="unwind" identifier="plannedTripViewController" unwindAction="unwindToPlannedTripWithSender:" id="zGB-ox-uSN"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Add" id="ruW-94-V1o"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="T1t-8x-6JJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="dev-YS-8LH" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2004" y="-550"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="bWI-rg-ogc">

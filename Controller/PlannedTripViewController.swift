@@ -13,6 +13,9 @@ class PlannedTripViewController: UIViewController {
     // MARK: - Outlets
     @IBOutlet weak var tableview: UITableView!
     
+    @IBAction func unwindToPlannedTrip(sender: UIStoryboardSegue) {
+    }
+    
     // MARK: - Variables
     var trips = ["Monterey", "Paris", "Tokyo", "San Francisco", "New York"]
     
