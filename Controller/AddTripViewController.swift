@@ -10,9 +10,20 @@ import UIKit
 
 class AddTripViewController: UIViewController {
 
+    // MARK: - Outlets
+    @IBOutlet weak var tripNameTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
     }
     
+    // MARK: - Actions
+    @IBAction func addNewTripButtonTapped(_ sender: UIBarButtonItem) {
+        print(tripNameTextField.text)
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        tripNameTextField.endEditing(true)
+    }
 }
