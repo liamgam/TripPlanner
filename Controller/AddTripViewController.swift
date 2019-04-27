@@ -10,9 +10,6 @@ import UIKit
 import CoreData
 
 class AddTripViewController: UIViewController {
-    
-    // MARK: - Variables
-    let coreDataHelper = CoreDataHelper()
 
     // MARK: - Outlets
     @IBOutlet weak var tripNameTextField: UITextField!
@@ -25,10 +22,10 @@ class AddTripViewController: UIViewController {
     @IBAction func addNewTripButtonTapped(_ sender: UIBarButtonItem) {
 
         // create new trip object and save to core data
-        let trip = Trip(context: coreDataHelper.managedObjectContext)
+        let trip = Trip(context: CoreDataHelper.managedObjectContext)
         trip.name = tripNameTextField.text
-        coreDataHelper.saveContext()
-        
+        CoreDataHelper.saveContext()
+    
         performSegue(withIdentifier: "plannedTripViewController", sender: self)
     }
     
