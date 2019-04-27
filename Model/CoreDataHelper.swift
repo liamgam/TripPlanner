@@ -11,9 +11,9 @@ import CoreData
 
 class CoreDataHelper {
 
-    var managedObjectContext = AppDelegate.context
+    static var managedObjectContext = AppDelegate().persistentContainer.viewContext
     
-    func fectchAll() -> [Trip]? {
+    class func fectchAll() -> [Trip]? {
         let request: NSFetchRequest<Trip> = Trip.fetchRequest()
         do {
             let results = try managedObjectContext.fetch(request)
@@ -24,7 +24,7 @@ class CoreDataHelper {
         return nil
     }
 
-    func saveContext() {
+    class func saveContext() {
         do {
             try managedObjectContext.save()
         } catch let error as NSError {
