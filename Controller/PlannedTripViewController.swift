@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import CoreData
 
 class PlannedTripViewController: UIViewController {
-
+    
     // MARK: - Outlets
     @IBOutlet weak var tableview: UITableView!
     
@@ -17,7 +18,7 @@ class PlannedTripViewController: UIViewController {
     }
     
     // MARK: - Variables
-    var trips = ["Monterey", "Paris", "Tokyo", "San Francisco", "New York"]
+    var allTrips = [Trip]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,18 +26,18 @@ class PlannedTripViewController: UIViewController {
         tableview.dataSource = self
         tableview.delegate = self
         
+        allTrips = CoreDataHelper.fectchAll()!
     }
 }
 
 extension PlannedTripViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return trips.count
+        return allTrips.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableview.dequeueReusableCell(withIdentifier: "tripCell") as! TripTableViewCell
-        cell.tripNameLabel.text = trips[indexPath.row]
+        cell.tripNameLabel.text = allTrips[indexPath.row].name
         return cell
     }
 }
-
