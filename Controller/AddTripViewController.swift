@@ -20,11 +20,16 @@ class AddTripViewController: UIViewController {
     
     // MARK: - Actions
     @IBAction func addNewTripButtonTapped(_ sender: UIBarButtonItem) {
+        
+        guard tripNameTextField.text != "" else { return }
 
         // create new trip object and save to core data
         let trip = Trip(context: CoreDataHelper.managedObjectContext)
         trip.name = tripNameTextField.text
         CoreDataHelper.saveContext()
+        
+        // send item to append to allTrips array in PlannedTripViewController
+        NotificationCenter.default.post(name: .didAddTripItem, object: trip)
     
         performSegue(withIdentifier: "plannedTripViewController", sender: self)
     }
