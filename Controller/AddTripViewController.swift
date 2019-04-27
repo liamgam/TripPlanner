@@ -12,29 +12,22 @@ import CoreData
 class AddTripViewController: UIViewController {
     
     // MARK: - Variables
-    var managedContext = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
+    let coreDataHelper = CoreDataHelper()
 
     // MARK: - Outlets
     @IBOutlet weak var tripNameTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        managedContext = AppDelegate.context
     }
     
     // MARK: - Actions
     @IBAction func addNewTripButtonTapped(_ sender: UIBarButtonItem) {
 
-        // create new trip object
-        let trip = Trip(context: managedContext)
+        // create new trip object and save to core data
+        let trip = Trip(context: coreDataHelper.managedObjectContext)
         trip.name = tripNameTextField.text
-        
-        // save name to new object
-        do {
-            try managedContext.save()
-        } catch let error as NSError {
-            print("error: \(error), decription: \(error.userInfo)")
-        }
+        coreDataHelper.saveContext()
         
         performSegue(withIdentifier: "plannedTripViewController", sender: self)
     }
