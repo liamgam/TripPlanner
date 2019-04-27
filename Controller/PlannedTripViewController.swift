@@ -27,6 +27,16 @@ class PlannedTripViewController: UIViewController {
         tableview.delegate = self
         
         allTrips = CoreDataHelper.fectchAll()!
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(addedTripItem(_:)), name: .didAddTripItem, object: nil)
+    }
+    
+    @objc func addedTripItem(_ notification: Notification) {
+        allTrips.append(notification.object as! Trip)
+        
+        tableview.beginUpdates()
+        tableview.insertRows(at: [IndexPath(row: allTrips.count - 1, section: 0)], with: .automatic)
+        tableview.endUpdates()
     }
 }
 
