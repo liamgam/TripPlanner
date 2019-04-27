@@ -7,3 +7,8 @@
 //
 
 import Foundation
+import UIKit
+
+extension Notification.Name {
+    static let didAddTripItem = Notification.Name(rawValue: "didAddTripItem")
+}
