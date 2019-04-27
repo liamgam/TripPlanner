@@ -7,20 +7,24 @@
 //
 
 import UIKit
+import CoreData
 
 class AddTripViewController: UIViewController {
+    
+    // MARK: - Variables
+    var managedContext = NSManagedObjectContext()
 
     // MARK: - Outlets
     @IBOutlet weak var tripNameTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        managedContext = AppDelegate.context
     }
     
     // MARK: - Actions
     @IBAction func addNewTripButtonTapped(_ sender: UIBarButtonItem) {
-        print(tripNameTextField.text)
+        // TODO: add item to core data in the Trip entity
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
