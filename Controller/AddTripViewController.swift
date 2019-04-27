@@ -12,7 +12,7 @@ import CoreData
 class AddTripViewController: UIViewController {
     
     // MARK: - Variables
-    var managedContext = NSManagedObjectContext()
+    var managedContext = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
 
     // MARK: - Outlets
     @IBOutlet weak var tripNameTextField: UITextField!
@@ -24,7 +24,19 @@ class AddTripViewController: UIViewController {
     
     // MARK: - Actions
     @IBAction func addNewTripButtonTapped(_ sender: UIBarButtonItem) {
-        // TODO: add item to core data in the Trip entity
+
+        // create new trip object
+        let trip = Trip(context: managedContext)
+        trip.name = tripNameTextField.text
+        
+        // save name to new object
+        do {
+            try managedContext.save()
+        } catch let error as NSError {
+            print("error: \(error), decription: \(error.userInfo)")
+        }
+        
+        performSegue(withIdentifier: "plannedTripViewController", sender: self)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
