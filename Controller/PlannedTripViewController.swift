@@ -59,14 +59,15 @@ extension PlannedTripViewController: UITableViewDelegate, UITableViewDataSource 
                 let result = CoreDataHelper.fetchFirst(withName: tripName) as! Trip?
                 if result!.waypoint?.count == 0 {
                     // navigate to NewWaypointViewController
+                    newWaypointVC.title = tripName
                     navigationController?.pushViewController(newWaypointVC, animated: true)
                 } else {
                     // navigate to AddWaypointViewController
+                    addWaypointsVC.title = tripName
                     navigationController?.pushViewController(addWaypointsVC, animated: true)
                 }
                 
             }
         }
-        
     }
 }
