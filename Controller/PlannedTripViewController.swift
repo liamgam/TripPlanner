@@ -52,13 +52,20 @@ extension PlannedTripViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let waypointsVC = navigationController?.storyboard?.instantiateViewController(withIdentifier: "waypointsVC") as? AddWaypointsViewController {
-            
-            if let tripName = allTrips[indexPath.row].name {
-                waypointsVC.title = tripName
+        
+        if let tripName = allTrips[indexPath.row].name {
+            if let addWaypointsVC = navigationController?.storyboard?.instantiateViewController(withIdentifier: "addWaypointVC") as? AddWaypointsViewController, let newWaypointVC = navigationController?.storyboard?.instantiateViewController(withIdentifier: "newWaypointVC") as? NewWaypointViewController {
+                
+                let result = CoreDataHelper.fetchFirst(withName: tripName) as! Trip?
+                if result!.waypoint?.count == 0 {
+                    // navigate to NewWaypointViewController
+                    navigationController?.pushViewController(newWaypointVC, animated: true)
+                } else {
+                    // navigate to AddWaypointViewController
+                    navigationController?.pushViewController(addWaypointsVC, animated: true)
+                }
+                
             }
-            
-            navigationController?.pushViewController(waypointsVC, animated: true)
         }
         
     }
