@@ -52,7 +52,7 @@ extension PlannedTripViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let waypointsVC = navigationController?.storyboard?.instantiateViewController(withIdentifier: "waypointsVC") as? WaypointsViewController {
+        if let waypointsVC = navigationController?.storyboard?.instantiateViewController(withIdentifier: "waypointsVC") as? AddWaypointsViewController {
             
             if let tripName = allTrips[indexPath.row].name {
                 waypointsVC.title = tripName
