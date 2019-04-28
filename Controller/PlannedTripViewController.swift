@@ -50,4 +50,16 @@ extension PlannedTripViewController: UITableViewDelegate, UITableViewDataSource 
         cell.tripNameLabel.text = allTrips[indexPath.row].name
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let waypointsVC = navigationController?.storyboard?.instantiateViewController(withIdentifier: "waypointsVC") as? WaypointsViewController {
+            
+            if let tripName = allTrips[indexPath.row].name {
+                waypointsVC.title = tripName
+            }
+            
+            navigationController?.pushViewController(waypointsVC, animated: true)
+        }
+        
+    }
 }
