@@ -31,4 +31,22 @@ class CoreDataHelper {
             print(error, error.userInfo)
         }
     }
+    
+    class func fetchFirst(withName: String) -> Trip? {
+        let request: NSFetchRequest<Trip> = Trip.fetchRequest()
+        request.predicate = NSPredicate(format: "%K == %@", #keyPath(Trip.name), withName)
+        
+        do {
+            let results = try managedObjectContext.fetch(request)
+            if results.count > 0 {
+                return results.first!
+            } else {
+                return nil
+            }
+        } catch let error as NSError {
+            print(error, error.userInfo)
+        }
+        
+        return nil
+    }
 }
