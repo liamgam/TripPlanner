@@ -10,6 +10,10 @@ import UIKit
 
 class NewWaypointViewController: UIViewController {
 
+    @IBAction func getStartedButtonTapped(_ sender: UIButton) {
+        // TODO: Instantiate to mapViewController
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

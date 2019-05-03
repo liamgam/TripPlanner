@@ -10,6 +10,10 @@ import UIKit
 
 class AddWaypointsViewController: UIViewController {
 
+    @IBAction func addMoreButtonTapped(_ sender: UIButton) {
+        // TODO: instantiate to mapViewController
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
