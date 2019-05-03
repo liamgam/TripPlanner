@@ -8,23 +8,24 @@
 
 import UIKit
 
-class MapViewController: UIViewController {
+class MapViewController: UIViewController, UISearchBarDelegate {
 
+    @IBOutlet weak var searchBarTextField: UISearchBar!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        searchBarTextField.delegate = self
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        fetchPlaces(place: searchBarTextField.text!)
+        
+        searchBarTextField.endEditing(true)
     }
-    */
-
+    
+    func fetchPlaces(place: String) {
+        
+    }
 }
