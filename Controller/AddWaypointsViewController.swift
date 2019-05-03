@@ -11,7 +11,9 @@ import UIKit
 class AddWaypointsViewController: UIViewController {
 
     @IBAction func addMoreButtonTapped(_ sender: UIButton) {
-        // TODO: instantiate to mapViewController
+        if let mapVC = navigationController?.storyboard?.instantiateViewController(withIdentifier: "mapVC") as? MapViewController {
+            navigationController?.pushViewController(mapVC, animated: true)
+        }
     }
     
     override func viewDidLoad() {

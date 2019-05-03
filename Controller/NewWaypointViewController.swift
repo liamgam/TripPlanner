@@ -12,6 +12,9 @@ class NewWaypointViewController: UIViewController {
 
     @IBAction func getStartedButtonTapped(_ sender: UIButton) {
         // TODO: Instantiate to mapViewController
+        if let mapVC = navigationController?.storyboard?.instantiateViewController(withIdentifier: "mapVC") as? MapViewController {
+            navigationController?.pushViewController(mapVC, animated: true)
+        }
     }
     
     override func viewDidLoad() {
