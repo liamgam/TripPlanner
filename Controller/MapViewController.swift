@@ -29,7 +29,7 @@ class MapViewController: UIViewController, UISearchBarDelegate {
     }
     
     func fetchPlaces(place: String) {
-        ServiceLayer.request(router: Router.fetchName(name: place)) { result in
+        ServiceLayer.request(router: Router.fetchName(name: place)) { (result: Results) in
             print(result.results[0].name)
         }
     }
