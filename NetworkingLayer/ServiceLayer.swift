@@ -10,7 +10,7 @@ import Foundation
 
 class ServiceLayer {
     
-    class func request(router: Router, completion: @escaping (Results) -> ()) {
+    class func request<T: Codable>(router: Router, completion: @escaping (T) -> ()) {
         var components = URLComponents()
         components.scheme = router.scheme
         components.host = router.host
@@ -41,7 +41,7 @@ class ServiceLayer {
             }
             
             do {
-                if let responseObject = try? JSONDecoder().decode(Results.self, from: data) {
+                if let responseObject = try? JSONDecoder().decode(T.self, from: data) {
                     completion(responseObject)
                 }
             } catch {
