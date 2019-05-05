@@ -19,15 +19,18 @@ class MapViewController: UIViewController, UISearchBarDelegate {
         
     }
     
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        fetchPlaces(place: searchBarTextField.text!)
-    }
+//    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+//        fetchPlaces(place: searchBarTextField.text!)
+//    }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        fetchPlaces(place: searchBarTextField.text!)
         searchBarTextField.endEditing(true)
     }
     
     func fetchPlaces(place: String) {
-        ServiceLayer.request(router: Router.fetchName(name: place))
+        ServiceLayer.request(router: Router.fetchName(name: place)) { result in
+            print(result.results[0].name)
+        }
     }
 }
