@@ -7,3 +7,29 @@
 //
 
 import Foundation
+
+struct Results: Codable {
+    
+    let results: [LocationInfo]
+    
+}
+
+struct LocationInfo: Codable {
+
+    let name: String
+    let geometry: Location
+
+}
+
+struct Location: Codable {
+    
+    let location: LatLong
+    
+}
+
+struct LatLong: Codable {
+    
+    let lat: Double
+    let lng: Double
+    
+}
