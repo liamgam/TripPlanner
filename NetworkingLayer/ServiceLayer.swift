@@ -10,7 +10,7 @@ import Foundation
 
 class ServiceLayer {
     
-    class func request(router: Router) {
+    class func request(router: Router, completion: @escaping (Results) -> ()) {
         var components = URLComponents()
         components.scheme = router.scheme
         components.host = router.host
@@ -41,21 +41,9 @@ class ServiceLayer {
             }
             
             do {
-                // Decoding
-//                let responseObject = try? JSONDecoder().decode(Results.self, from: data)
-//                print(responseObject?.results)
-                
-                // JSONSerialization
-                do {
-                    if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
-                        if let results = json["results"] {
-                            print(results)
-                        }
-                    }
-                } catch let error as NSError {
-                    print(error, error.userInfo)
+                if let responseObject = try? JSONDecoder().decode(Results.self, from: data) {
+                    completion(responseObject)
                 }
-                
             } catch {
                 print("error")
             }
