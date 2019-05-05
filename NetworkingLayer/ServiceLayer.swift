@@ -22,9 +22,7 @@ class ServiceLayer {
             return
         }
         
-        print(url)
         var urlRequest = URLRequest(url: url)
-        print(urlRequest)
         
         let session = URLSession(configuration: .default)
         let dataTask = session.dataTask(with: urlRequest) { data, response, error in
@@ -33,7 +31,7 @@ class ServiceLayer {
                 print("error")
                 return
             }
-            guard data != nil else {
+            guard let data = data else {
                 print("empty data")
                 return
             }
@@ -42,7 +40,25 @@ class ServiceLayer {
                 return
             }
             
-            print(response)
+            do {
+                // Decoding
+//                let responseObject = try? JSONDecoder().decode(Results.self, from: data)
+//                print(responseObject?.results)
+                
+                // JSONSerialization
+                do {
+                    if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                        if let results = json["results"] {
+                            print(results)
+                        }
+                    }
+                } catch let error as NSError {
+                    print(error, error.userInfo)
+                }
+                
+            } catch {
+                print("error")
+            }
         }
         dataTask.resume()
     }
