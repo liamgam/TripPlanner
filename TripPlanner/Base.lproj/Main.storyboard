@@ -76,23 +76,27 @@
         <!--New Waypoint View Controller-->
         <scene sceneID="Dkn-lb-1Ko">
             <objects>
-                <viewController id="diJ-Zj-N2f" customClass="NewWaypointViewController" customModule="TripPlanner" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="newWaypointVC" id="diJ-Zj-N2f" customClass="NewWaypointViewController" customModule="TripPlanner" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Frc-OY-lau">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="1wT-nR-dJr">
-                                <rect key="frame" x="33.333333333333343" y="328" width="347.33333333333326" height="80.333333333333314"/>
+                                <rect key="frame" x="19.333333333333343" y="321.66666666666669" width="375.66666666666663" height="92.666666666666686"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You haven't added any waypoints to your trip!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jdc-Nn-Axq">
-                                        <rect key="frame" x="0.0" y="0.0" width="347.33333333333331" height="20.333333333333332"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375.66666666666669" height="24.666666666666668"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="18"/>
                                         <color key="textColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tUa-tO-WuZ">
-                                        <rect key="frame" x="131.66666666666666" y="50.333333333333314" width="84" height="30"/>
+                                        <rect key="frame" x="134.33333333333331" y="54.666666666666629" width="107" height="38"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="19"/>
                                         <state key="normal" title="Get Started!"/>
+                                        <connections>
+                                            <action selector="getStartedButtonTapped:" destination="diJ-Zj-N2f" eventType="touchUpInside" id="r1p-5H-rYS"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -112,7 +116,7 @@
         <!--Add Waypoints View Controller-->
         <scene sceneID="gvK-7L-ZRI">
             <objects>
-                <viewController storyboardIdentifier="waypointsVC" id="iWu-2y-Hct" customClass="AddWaypointsViewController" customModule="TripPlanner" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="addWaypointVC" id="iWu-2y-Hct" customClass="AddWaypointsViewController" customModule="TripPlanner" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6mZ-EM-yOC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -122,17 +126,21 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="alf-ed-vaQ"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="19"/>
                                 <state key="normal" title="Add more waypoints"/>
+                                <connections>
+                                    <action selector="addMoreButtonTapped:" destination="iWu-2y-Hct" eventType="touchUpInside" id="tzg-ui-4Dd"/>
+                                </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zr3-3s-Kcy">
                                 <rect key="frame" x="0.0" y="180" width="414" height="556"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="A8L-J4-5Tl">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="65" id="A8L-J4-5Tl">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="A8L-J4-5Tl" id="mss-Ue-tae">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="64.666666666666671"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -154,7 +162,56 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eCS-ed-GSm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1577" y="307"/>
+            <point key="canvasLocation" x="1576.8115942028987" y="306.52173913043481"/>
+        </scene>
+        <!--Map View Controller-->
+        <scene sceneID="UO8-ia-qFW">
+            <objects>
+                <viewController storyboardIdentifier="mapVC" id="eDI-Zq-tzP" customClass="MapViewController" customModule="TripPlanner" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gmc-6z-VSt">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="a5u-9y-ca6">
+                                <rect key="frame" x="0.0" y="76" width="414" height="660"/>
+                            </mapView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="R6Y-B4-rTA">
+                                <rect key="frame" x="0.0" y="20" width="414" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="eDI-Zq-tzP" id="dWe-FQ-aiu"/>
+                                </connections>
+                            </searchBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="R6Y-B4-rTA" firstAttribute="leading" secondItem="6Az-es-mEF" secondAttribute="leading" id="7Dl-AB-bV2"/>
+                            <constraint firstItem="a5u-9y-ca6" firstAttribute="leading" secondItem="6Az-es-mEF" secondAttribute="leading" id="ADQ-Fp-BZD"/>
+                            <constraint firstItem="6Az-es-mEF" firstAttribute="trailing" secondItem="a5u-9y-ca6" secondAttribute="trailing" id="AG6-yt-WAf"/>
+                            <constraint firstItem="R6Y-B4-rTA" firstAttribute="trailing" secondItem="6Az-es-mEF" secondAttribute="trailing" id="XSh-c9-EQy"/>
+                            <constraint firstItem="a5u-9y-ca6" firstAttribute="top" secondItem="R6Y-B4-rTA" secondAttribute="bottom" id="cOE-cj-SnY"/>
+                            <constraint firstItem="6Az-es-mEF" firstAttribute="bottom" secondItem="a5u-9y-ca6" secondAttribute="bottom" id="gyk-HQ-ncr"/>
+                            <constraint firstItem="R6Y-B4-rTA" firstAttribute="top" secondItem="6Az-es-mEF" secondAttribute="top" id="nEx-0f-Xj2"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Az-es-mEF"/>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="a5u-9y-ca6" id="sg2-79-W6T"/>
+                        <outlet property="searchBarTextField" destination="R6Y-B4-rTA" id="odY-Nz-Mzk"/>
+                        <outlet property="searchDisplayController" destination="YCR-LH-G4J" id="PWm-in-nS9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cnH-c3-S9q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="YCR-LH-G4J">
+                    <connections>
+                        <outlet property="delegate" destination="eDI-Zq-tzP" id="PHw-5J-W8I"/>
+                        <outlet property="searchContentsController" destination="eDI-Zq-tzP" id="75A-Jg-hVP"/>
+                        <outlet property="searchResultsDataSource" destination="eDI-Zq-tzP" id="SmZ-s8-LdQ"/>
+                        <outlet property="searchResultsDelegate" destination="eDI-Zq-tzP" id="4zE-1y-2kl"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="2876.811594202899" y="306.52173913043481"/>
         </scene>
         <!--Add Trip-->
         <scene sceneID="zZd-yf-vJp">
