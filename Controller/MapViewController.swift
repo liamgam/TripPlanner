@@ -8,12 +8,14 @@
 
 import UIKit
 import MapKit
+import GooglePlaces
 
 class MapViewController: UIViewController, UISearchBarDelegate, CLLocationManagerDelegate {
-
+    
     // MARK: - Outlets
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var searchBarTextField: UISearchBar!
+    @IBOutlet weak var searchBarController: UISearchController!
     
     // MARK: - Variables
     let locationManager = CLLocationManager()
@@ -59,18 +61,38 @@ class MapViewController: UIViewController, UISearchBarDelegate, CLLocationManage
     
     
     func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
+        // presents the googleAutocompleteViewController
+        
+        let autocompleteController = GMSAutocompleteViewController()
+        autocompleteController.delegate = self
+        
+        let fields: GMSPlaceField = GMSPlaceField(rawValue: UInt(GMSPlaceField.name.rawValue) |
+            UInt(GMSPlaceField.placeID.rawValue))!
+        autocompleteController.placeFields = fields
+        
+        let filter = GMSAutocompleteFilter()
+        filter.type = .address
+        autocompleteController.autocompleteFilter = filter
+        
+        self.present(autocompleteController, animated: false, completion: nil)
+        
         return true
     }
+}
+
+
+extension MapViewController: GMSAutocompleteViewControllerDelegate {
     
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        fetchPlaces(place: searchBarTextField.text!)
-        searchBarTextField.endEditing(true)
+    func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
+        // TODO: show annotation of selected place on map view
+        print(place)
     }
     
-    func fetchPlaces(place: String) {
-        ServiceLayer.request(router: Router.fetchName(name: place)) { (result: Results) in
-            // TODO: update annotation on the mapView
-            print(result.results[0].name)
-        }
+    func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
+        print(error.localizedDescription)
+    }
+    
+    func wasCancelled(_ viewController: GMSAutocompleteViewController) {
+        self.dismiss(animated: false, completion: nil)
     }
 }
