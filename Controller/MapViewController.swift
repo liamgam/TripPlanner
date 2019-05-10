@@ -14,17 +14,32 @@ class MapViewController: UIViewController, UISearchBarDelegate, CLLocationManage
     
     // MARK: - Outlets
     @IBOutlet weak var mapView: MKMapView!
-    @IBOutlet weak var searchBarTextField: UISearchBar!
-    @IBOutlet weak var searchBarController: UISearchController!
     
     // MARK: - Variables
     let locationManager = CLLocationManager()
     
+    var resultsViewController: GMSAutocompleteResultsViewController?
+    var searchController: UISearchController?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        searchBarTextField.delegate = self
         checkLocationServices()
+        setupSearch()
+    }
+    
+    func setupSearch() {
+        resultsViewController = GMSAutocompleteResultsViewController()
+        resultsViewController?.delegate = self
+        searchController = UISearchController(searchResultsController: resultsViewController)
+        searchController?.searchResultsUpdater = resultsViewController
+        
+        let searchbar = searchController?.searchBar
+        searchbar?.placeholder = "Search for places"
+        navigationItem.titleView = searchController?.searchBar
+        definesPresentationContext = true
+        searchController?.hidesNavigationBarDuringPresentation = false
+        searchController?.modalPresentationStyle = .popover
         
     }
     
@@ -33,11 +48,7 @@ class MapViewController: UIViewController, UISearchBarDelegate, CLLocationManage
             // set up location manager
             locationManager.delegate = self
             locationManager.desiredAccuracy = kCLLocationAccuracyBest
-            
             checkLocationAuthorization()
-        } else {
-            // doesnt display current location on map
-            print("location not enabled")
         }
     }
     
@@ -45,6 +56,7 @@ class MapViewController: UIViewController, UISearchBarDelegate, CLLocationManage
         switch CLLocationManager.authorizationStatus() {
         case .authorizedWhenInUse:
             mapView.showsUserLocation = true
+            setUserLocationRegion()
             break
         case .denied:
             break
@@ -59,40 +71,34 @@ class MapViewController: UIViewController, UISearchBarDelegate, CLLocationManage
         }
     }
     
-    
-    func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
-        // presents the googleAutocompleteViewController
-        
-        let autocompleteController = GMSAutocompleteViewController()
-        autocompleteController.delegate = self
-        
-        let fields: GMSPlaceField = GMSPlaceField(rawValue: UInt(GMSPlaceField.name.rawValue) |
-            UInt(GMSPlaceField.placeID.rawValue))!
-        autocompleteController.placeFields = fields
-        
-        let filter = GMSAutocompleteFilter()
-        filter.type = .address
-        autocompleteController.autocompleteFilter = filter
-        
-        self.present(autocompleteController, animated: false, completion: nil)
-        
-        return true
+    func setUserLocationRegion() {
+        if let userLocation = locationManager.location?.coordinate {
+            let viewRegion = MKCoordinateRegion(center: userLocation, latitudinalMeters: 1000, longitudinalMeters: 1000)
+            mapView.setRegion(viewRegion, animated: true)
+        }
+       
     }
 }
 
 
-extension MapViewController: GMSAutocompleteViewControllerDelegate {
-    
-    func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
+extension MapViewController: GMSAutocompleteResultsViewControllerDelegate /*GMSAutocompleteViewControllerDelegate*/ {
+    func resultsController(_ resultsController: GMSAutocompleteResultsViewController, didAutocompleteWith place: GMSPlace) {
+        
+        let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
+        let region = MKCoordinateRegion(center: place.coordinate, span: span)
+        mapView.setRegion(region, animated: true)
+        
         // TODO: show annotation of selected place on map view
-        print(place)
-    }
-    
-    func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
-        print(error.localizedDescription)
-    }
-    
-    func wasCancelled(_ viewController: GMSAutocompleteViewController) {
+        let annotation = MKPointAnnotation()
+        annotation.title = place.name
+        annotation.coordinate = place.coordinate
+        
+        mapView.addAnnotation(annotation)
+        
         self.dismiss(animated: false, completion: nil)
+    }
+    
+    func resultsController(_ resultsController: GMSAutocompleteResultsViewController, didFailAutocompleteWithError error: Error) {
+        print(error.localizedDescription)
     }
 }
