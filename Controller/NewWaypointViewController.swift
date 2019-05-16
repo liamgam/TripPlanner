@@ -9,10 +9,14 @@
 import UIKit
 
 class NewWaypointViewController: UIViewController {
+    
+    // MARK: - Variables
+    var trip: Trip?
 
     @IBAction func getStartedButtonTapped(_ sender: UIButton) {
         // TODO: Instantiate to mapViewController
         if let mapVC = navigationController?.storyboard?.instantiateViewController(withIdentifier: "mapVC") as? MapViewController {
+            mapVC.trip = trip
             navigationController?.pushViewController(mapVC, animated: true)
         }
     }
