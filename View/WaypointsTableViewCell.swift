@@ -10,7 +10,6 @@ import UIKit
 
 class WaypointsTableViewCell: UITableViewCell {
 
-    // MARK: - Outlets
     @IBOutlet weak var waypointLabel: UILabel!
 
 }
