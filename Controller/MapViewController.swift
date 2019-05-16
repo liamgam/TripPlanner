@@ -16,6 +16,7 @@ class MapViewController: UIViewController, UISearchBarDelegate, CLLocationManage
     @IBOutlet weak var mapView: MKMapView!
     
     // MARK: - Variables
+    var trip: Trip?
     let locationManager = CLLocationManager()
     
     var resultsViewController: GMSAutocompleteResultsViewController?
@@ -26,6 +27,9 @@ class MapViewController: UIViewController, UISearchBarDelegate, CLLocationManage
         
         checkLocationServices()
         setupSearch()
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveWayPoint))
+        
     }
     
     func setupSearch() {
@@ -41,6 +45,22 @@ class MapViewController: UIViewController, UISearchBarDelegate, CLLocationManage
         searchController?.hidesNavigationBarDuringPresentation = false
         searchController?.modalPresentationStyle = .popover
         
+    }
+    
+    @objc func saveWayPoint() {
+        
+        let filter = mapView.annotations.last
+        
+        let waypoint = Waypoint(context: CoreDataHelper.managedObjectContext)
+        waypoint.name = (filter?.title)!
+        
+        if let trip = trip {
+            trip.addToWaypoint(waypoint)
+            CoreDataHelper.saveContext()
+        }
+        
+        // TODO: add to array of waypoint items in addWaypointsViewController
+        // Check to dismiss and add to NewWayPointViewController or to instantiate NewWayPointViewController
     }
     
     func checkLocationServices() {
@@ -73,7 +93,8 @@ class MapViewController: UIViewController, UISearchBarDelegate, CLLocationManage
     
     func setUserLocationRegion() {
         if let userLocation = locationManager.location?.coordinate {
-            let viewRegion = MKCoordinateRegion(center: userLocation, latitudinalMeters: 1000, longitudinalMeters: 1000)
+            let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
+            let viewRegion = MKCoordinateRegion(center: userLocation, span: span)
             mapView.setRegion(viewRegion, animated: true)
         }
        
@@ -83,6 +104,9 @@ class MapViewController: UIViewController, UISearchBarDelegate, CLLocationManage
 
 extension MapViewController: GMSAutocompleteResultsViewControllerDelegate /*GMSAutocompleteViewControllerDelegate*/ {
     func resultsController(_ resultsController: GMSAutocompleteResultsViewController, didAutocompleteWith place: GMSPlace) {
+        
+        // remove previous annotations
+        mapView.removeAnnotations(mapView.annotations)
         
         let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
         let region = MKCoordinateRegion(center: place.coordinate, span: span)
