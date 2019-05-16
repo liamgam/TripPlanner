@@ -53,20 +53,21 @@ extension PlannedTripViewController: UITableViewDelegate, UITableViewDataSource 
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        if let tripName = allTrips[indexPath.row].name {
-            if let addWaypointsVC = navigationController?.storyboard?.instantiateViewController(withIdentifier: "addWaypointVC") as? AddWaypointsViewController, let newWaypointVC = navigationController?.storyboard?.instantiateViewController(withIdentifier: "newWaypointVC") as? NewWaypointViewController {
-                
-                let result = CoreDataHelper.fetchFirst(withName: tripName) as! Trip?
-                if result!.waypoint?.count == 0 {
-                    // navigate to NewWaypointViewController
-                    newWaypointVC.title = tripName
-                    navigationController?.pushViewController(newWaypointVC, animated: true)
-                } else {
-                    // navigate to AddWaypointViewController
-                    addWaypointsVC.title = tripName
-                    navigationController?.pushViewController(addWaypointsVC, animated: true)
-                }
-                
+        if let trip = allTrips[indexPath.row] as? Trip {
+            let waypoints = trip.waypoint
+            
+            if waypoints?.count == 0 {
+                // pass trip object to 'NewWaypointViewController'
+                let newWaypointsVC = navigationController?.storyboard?.instantiateViewController(withIdentifier: "newWaypointVC") as? NewWaypointViewController
+                newWaypointsVC?.trip = trip
+                navigationController?.title = trip.name
+                navigationController?.pushViewController(newWaypointsVC!, animated: true)
+            } else {
+                // pass the trip object to 'addWaypointsViewController'
+                let addWaypointsVC = navigationController?.storyboard?.instantiateViewController(withIdentifier: "addWaypointVC") as? AddWaypointsViewController
+                addWaypointsVC?.trip = trip
+                navigationController?.title = trip.name
+                navigationController?.pushViewController(addWaypointsVC!, animated: true)
             }
         }
     }
