@@ -32,7 +32,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trip name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ve9-7M-OID">
                                                     <rect key="frame" x="35" y="9.6666666666666661" width="344" height="24.666666666666671"/>
                                                     <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="18"/>
-                                                    <color key="textColor" red="0.41719601299999998" green="0.4147562702" blue="0.4196357557" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <color key="textColor" red="0.41568627450980389" green="0.41568627450980389" blue="0.41960784313725491" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -136,13 +136,28 @@
                                 <rect key="frame" x="0.0" y="180" width="414" height="556"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="65" id="A8L-J4-5Tl">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="waypointCell" rowHeight="65" id="A8L-J4-5Tl" customClass="WaypointsTableViewCell" customModule="TripPlanner" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="A8L-J4-5Tl" id="mss-Ue-tae">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="64.666666666666671"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Waypoint label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QHI-dl-6L3">
+                                                    <rect key="frame" x="20" y="20.666666666666671" width="115" height="23.333333333333329"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
+                                                    <color key="textColor" red="0.41568627450980389" green="0.41568627450980389" blue="0.41960784313725491" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="QHI-dl-6L3" firstAttribute="centerY" secondItem="mss-Ue-tae" secondAttribute="centerY" id="gXU-kZ-csE"/>
+                                                <constraint firstItem="QHI-dl-6L3" firstAttribute="leading" secondItem="mss-Ue-tae" secondAttribute="leadingMargin" id="xXk-g8-Ita"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="waypointLabel" destination="QHI-dl-6L3" id="6sb-ma-Ukc"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -159,6 +174,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="HVV-7c-yIS"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="zr3-3s-Kcy" id="G22-AD-h6e"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eCS-ed-GSm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -254,7 +272,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T1t-8x-6JJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="dev-YS-8LH" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2002.8985507246377" y="-550.27173913043487"/>
+            <point key="canvasLocation" x="2290" y="-550"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="bWI-rg-ogc">
