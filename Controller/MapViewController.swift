@@ -57,10 +57,18 @@ class MapViewController: UIViewController, UISearchBarDelegate, CLLocationManage
         if let trip = trip {
             trip.addToWaypoint(waypoint)
             CoreDataHelper.saveContext()
+            
+            if trip.waypoint!.count <= 1 {
+                
+                let viewsOnNavStack = self.navigationController?.viewControllers.count
+                let previousViewController = navigationController?.viewControllers[viewsOnNavStack!-3]
+                navigationController?.popToViewController(previousViewController!, animated: false)
+                
+                // TODO: instantiate 'addWaypointViewController' passing the trip
+            } else {
+                navigationController?.popViewController(animated: true)
+            }
         }
-        
-        // TODO: add to array of waypoint items in addWaypointsViewController
-        // Check to dismiss and add to NewWayPointViewController or to instantiate NewWayPointViewController
     }
     
     func checkLocationServices() {
