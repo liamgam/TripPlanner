@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		750E757CC4F896DD32C2B6F0 /* Pods_TripPlanner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3BEABD9723D736DAB6B879B /* Pods_TripPlanner.framework */; };
+		A42FF42C227625FD00370915 /* AddWaypointsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42FF42B227625FD00370915 /* AddWaypointsViewController.swift */; };
+		A42FF42E2276348500370915 /* NewWaypointViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42FF42D2276348500370915 /* NewWaypointViewController.swift */; };
+		A433B7822273E59D00E439C8 /* Waypoint+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A433B77E2273E59D00E439C8 /* Waypoint+CoreDataClass.swift */; };
+		A433B7832273E59D00E439C8 /* Waypoint+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A433B77F2273E59D00E439C8 /* Waypoint+CoreDataProperties.swift */; };
+		A433B7842273E59D00E439C8 /* Trip+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A433B7802273E59D00E439C8 /* Trip+CoreDataClass.swift */; };
+		A433B7852273E59D00E439C8 /* Trip+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A433B7812273E59D00E439C8 /* Trip+CoreDataProperties.swift */; };
+		A433B7882273E80B00E439C8 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A433B7872273E80B00E439C8 /* CoreDataHelper.swift */; };
 		A44BBE242273993100C49FB1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44BBE232273993100C49FB1 /* AppDelegate.swift */; };
 		A44BBE262273993100C49FB1 /* PlannedTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44BBE252273993100C49FB1 /* PlannedTripViewController.swift */; };
 		A44BBE292273993100C49FB1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A44BBE272273993100C49FB1 /* Main.storyboard */; };
@@ -14,9 +22,26 @@
 		A44BBE2E2273993100C49FB1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A44BBE2D2273993100C49FB1 /* Assets.xcassets */; };
 		A44BBE312273993100C49FB1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A44BBE2F2273993100C49FB1 /* LaunchScreen.storyboard */; };
 		A44BBE3A22739D4E00C49FB1 /* TripTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44BBE3922739D4E00C49FB1 /* TripTableViewCell.swift */; };
+		A44BBE3D2273A35300C49FB1 /* AddTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44BBE3C2273A35300C49FB1 /* AddTripViewController.swift */; };
+		A4693745227CDA8300691639 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4693744227CDA8300691639 /* MapViewController.swift */; };
+		A4693748227CE98500691639 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4693747227CE98500691639 /* Router.swift */; };
+		A469374A227CE9C700691639 /* ServiceLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4693749227CE9C700691639 /* ServiceLayer.swift */; };
+		A469374C227D017800691639 /* LocationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A469374B227D017800691639 /* LocationItem.swift */; };
+		A46F321B2283C33800A84CD8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46F321A2283C33800A84CD8 /* Constants.swift */; };
+		A4C30ECF228CFF4A00EFB533 /* WaypointsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C30ECE228CFF4A00EFB533 /* WaypointsTableViewCell.swift */; };
+		A4D7DC7E2274ED34001D3899 /* NotificationNameExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D7DC7D2274ED34001D3899 /* NotificationNameExt.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6B177879241CD5EADBF798F1 /* Pods-TripPlanner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TripPlanner.release.xcconfig"; path = "Pods/Target Support Files/Pods-TripPlanner/Pods-TripPlanner.release.xcconfig"; sourceTree = "<group>"; };
+		9B476935F5C8AEB3221825BB /* Pods-TripPlanner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TripPlanner.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TripPlanner/Pods-TripPlanner.debug.xcconfig"; sourceTree = "<group>"; };
+		A42FF42B227625FD00370915 /* AddWaypointsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWaypointsViewController.swift; sourceTree = "<group>"; };
+		A42FF42D2276348500370915 /* NewWaypointViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWaypointViewController.swift; sourceTree = "<group>"; };
+		A433B77E2273E59D00E439C8 /* Waypoint+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Waypoint+CoreDataClass.swift"; sourceTree = "<group>"; };
+		A433B77F2273E59D00E439C8 /* Waypoint+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Waypoint+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		A433B7802273E59D00E439C8 /* Trip+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Trip+CoreDataClass.swift"; sourceTree = "<group>"; };
+		A433B7812273E59D00E439C8 /* Trip+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Trip+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		A433B7872273E80B00E439C8 /* CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
 		A44BBE202273993100C49FB1 /* TripPlanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TripPlanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A44BBE232273993100C49FB1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A44BBE252273993100C49FB1 /* PlannedTripViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlannedTripViewController.swift; sourceTree = "<group>"; };
@@ -26,6 +51,15 @@
 		A44BBE302273993100C49FB1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A44BBE322273993100C49FB1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A44BBE3922739D4E00C49FB1 /* TripTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripTableViewCell.swift; sourceTree = "<group>"; };
+		A44BBE3C2273A35300C49FB1 /* AddTripViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTripViewController.swift; sourceTree = "<group>"; };
+		A4693744227CDA8300691639 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		A4693747227CE98500691639 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		A4693749227CE9C700691639 /* ServiceLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLayer.swift; sourceTree = "<group>"; };
+		A469374B227D017800691639 /* LocationItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationItem.swift; sourceTree = "<group>"; };
+		A46F321A2283C33800A84CD8 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		A4C30ECE228CFF4A00EFB533 /* WaypointsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaypointsTableViewCell.swift; sourceTree = "<group>"; };
+		A4D7DC7D2274ED34001D3899 /* NotificationNameExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationNameExt.swift; sourceTree = "<group>"; };
+		D3BEABD9723D736DAB6B879B /* Pods_TripPlanner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TripPlanner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,19 +67,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				750E757CC4F896DD32C2B6F0 /* Pods_TripPlanner.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A433B7862273E7FB00E439C8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A433B7872273E80B00E439C8 /* CoreDataHelper.swift */,
+				A469374B227D017800691639 /* LocationItem.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		A44BBE172273993100C49FB1 = {
 			isa = PBXGroup;
 			children = (
+				A4693746227CE97000691639 /* NetworkingLayer */,
+				A433B7862273E7FB00E439C8 /* Model */,
+				A4D7DC7C2274ED23001D3899 /* Extension */,
+				A433B77E2273E59D00E439C8 /* Waypoint+CoreDataClass.swift */,
+				A433B77F2273E59D00E439C8 /* Waypoint+CoreDataProperties.swift */,
+				A433B7802273E59D00E439C8 /* Trip+CoreDataClass.swift */,
+				A433B7812273E59D00E439C8 /* Trip+CoreDataProperties.swift */,
 				A44BBE3822739D2F00C49FB1 /* View */,
 				A44BBE3B2273A05B00C49FB1 /* Controller */,
 				A44BBE222273993100C49FB1 /* TripPlanner */,
 				A44BBE212273993100C49FB1 /* Products */,
+				C45A04C30AF14D3441231E79 /* Pods */,
+				AF6315574FB9B1DEC559973E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -61,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				A44BBE232273993100C49FB1 /* AppDelegate.swift */,
+				A46F321A2283C33800A84CD8 /* Constants.swift */,
 				A44BBE272273993100C49FB1 /* Main.storyboard */,
 				A44BBE2D2273993100C49FB1 /* Assets.xcassets */,
 				A44BBE2F2273993100C49FB1 /* LaunchScreen.storyboard */,
@@ -74,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				A44BBE3922739D4E00C49FB1 /* TripTableViewCell.swift */,
+				A4C30ECE228CFF4A00EFB533 /* WaypointsTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -81,9 +136,47 @@
 		A44BBE3B2273A05B00C49FB1 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				A44BBE3C2273A35300C49FB1 /* AddTripViewController.swift */,
 				A44BBE252273993100C49FB1 /* PlannedTripViewController.swift */,
+				A42FF42B227625FD00370915 /* AddWaypointsViewController.swift */,
+				A42FF42D2276348500370915 /* NewWaypointViewController.swift */,
+				A4693744227CDA8300691639 /* MapViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		A4693746227CE97000691639 /* NetworkingLayer */ = {
+			isa = PBXGroup;
+			children = (
+				A4693747227CE98500691639 /* Router.swift */,
+				A4693749227CE9C700691639 /* ServiceLayer.swift */,
+			);
+			path = NetworkingLayer;
+			sourceTree = "<group>";
+		};
+		A4D7DC7C2274ED23001D3899 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				A4D7DC7D2274ED34001D3899 /* NotificationNameExt.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		AF6315574FB9B1DEC559973E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D3BEABD9723D736DAB6B879B /* Pods_TripPlanner.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C45A04C30AF14D3441231E79 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9B476935F5C8AEB3221825BB /* Pods-TripPlanner.debug.xcconfig */,
+				6B177879241CD5EADBF798F1 /* Pods-TripPlanner.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -93,9 +186,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A44BBE352273993100C49FB1 /* Build configuration list for PBXNativeTarget "TripPlanner" */;
 			buildPhases = (
+				B2C3A2551163E38B9D174A4E /* [CP] Check Pods Manifest.lock */,
 				A44BBE1C2273993100C49FB1 /* Sources */,
 				A44BBE1D2273993100C49FB1 /* Frameworks */,
 				A44BBE1E2273993100C49FB1 /* Resources */,
+				2C3A909556A603EA74620FDA /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -152,15 +247,73 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2C3A909556A603EA74620FDA /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-TripPlanner/Pods-TripPlanner-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+				"${PODS_ROOT}/GooglePlacePicker/Frameworks/GooglePlacePicker.framework/Resources/GooglePlacePicker.bundle",
+				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlacePicker.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlaces.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TripPlanner/Pods-TripPlanner-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B2C3A2551163E38B9D174A4E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TripPlanner-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		A44BBE1C2273993100C49FB1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A469374C227D017800691639 /* LocationItem.swift in Sources */,
+				A433B7882273E80B00E439C8 /* CoreDataHelper.swift in Sources */,
+				A433B7852273E59D00E439C8 /* Trip+CoreDataProperties.swift in Sources */,
+				A44BBE3D2273A35300C49FB1 /* AddTripViewController.swift in Sources */,
 				A44BBE3A22739D4E00C49FB1 /* TripTableViewCell.swift in Sources */,
+				A433B7822273E59D00E439C8 /* Waypoint+CoreDataClass.swift in Sources */,
 				A44BBE262273993100C49FB1 /* PlannedTripViewController.swift in Sources */,
+				A42FF42E2276348500370915 /* NewWaypointViewController.swift in Sources */,
+				A4693748227CE98500691639 /* Router.swift in Sources */,
+				A433B7832273E59D00E439C8 /* Waypoint+CoreDataProperties.swift in Sources */,
 				A44BBE2C2273993100C49FB1 /* TripPlanner.xcdatamodeld in Sources */,
+				A433B7842273E59D00E439C8 /* Trip+CoreDataClass.swift in Sources */,
+				A4C30ECF228CFF4A00EFB533 /* WaypointsTableViewCell.swift in Sources */,
+				A469374A227CE9C700691639 /* ServiceLayer.swift in Sources */,
+				A42FF42C227625FD00370915 /* AddWaypointsViewController.swift in Sources */,
+				A4D7DC7E2274ED34001D3899 /* NotificationNameExt.swift in Sources */,
 				A44BBE242273993100C49FB1 /* AppDelegate.swift in Sources */,
+				A4693745227CDA8300691639 /* MapViewController.swift in Sources */,
+				A46F321B2283C33800A84CD8 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,6 +457,7 @@
 		};
 		A44BBE362273993100C49FB1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9B476935F5C8AEB3221825BB /* Pods-TripPlanner.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -322,6 +476,7 @@
 		};
 		A44BBE372273993100C49FB1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6B177879241CD5EADBF798F1 /* Pods-TripPlanner.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
