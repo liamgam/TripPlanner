@@ -18,7 +18,7 @@ extension Trip {
     }
 
     @NSManaged public var name: String?
-    @NSManaged public var waypoint: NSOrderedSet?
+    @NSManaged public var waypoint: NSMutableOrderedSet?
 
 }
 
